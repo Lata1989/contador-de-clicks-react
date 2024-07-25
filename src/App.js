@@ -1,25 +1,54 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+
 import './App.css';
+import imagenContador from './imagenes/contador.png';
+import {Boton} from './components/Boton/Boton';
+import { Contador } from './components/Contador/Contador';
 
 function App() {
+
+  const [numeroClicks, setNumeroClicks] = useState(0);
+
+  const manejarClick = () => {
+    console.log('El boton funciona.');
+    setNumeroClicks(numeroClicks + 1);
+  };
+
+  const reiniciarContador = () => {
+    console.log('Reiniciar');
+    setNumeroClicks(0);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <div className='contenedor-logo'>
+        <img
+          className='contador-logo'
+          src={imagenContador}
+          alt='Logo de aplicación'
+        />
+      </div>
+      <div className='contenedor-principal'>
+        <Contador
+          numeroClicks={numeroClicks}
         >
-          Learn React
-        </a>
-      </header>
+        </Contador>
+
+        <Boton
+          texto={'Click'}
+          esBotonDeClick={true}
+          manejarClick={manejarClick}
+        >
+        </Boton>
+        <Boton
+          texto={'Reiniciar'}
+          esBotonDeClick={false}
+          manejarClick={reiniciarContador}
+        >
+        </Boton>
+      </div>
     </div>
   );
-}
+};
 
 export default App;

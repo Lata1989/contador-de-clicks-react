@@ -1,0 +1,22 @@
+.boton-click {
+    background-color: #002ead;
+}
+
+.boton-reiniciar {
+    background-color: #5a01a7;
+}
+
+button {
+    height: 100px;
+    width: 300px;
+    font-size: 2rem;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    border-radius: 20px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #00471b;
+}
